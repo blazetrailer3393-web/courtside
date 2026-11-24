@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURTSIDE | Basketball & Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="#home" class="logo">COURT<span>SIDE.</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#scores">Scores</a>
+        <a href="#players">Players</a>
+        <a href="#games">Games</a>
+        <a href="#training">Training</a>
+    </nav>
+
+    <button class="theme-btn" id="themeBtn">☀️</button>
+</header>
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="orange-text">WELCOME TO COURTSIDE</p>
+        <h1>MORE THAN<br>JUST A GAME<span>.</span></h1>
+        <p class="hero-description">
+            Your ultimate basketball destination.
+            Explore the game, test your skills and
+            discover what makes basketball exciting.
+        </p>
+        <a href="#games" class="main-btn">EXPLORE NOW ↗</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="hero-circle">🏀</div>
+        <p>THE LOVE OF THE GAME.</p>
+    </div>
+</section>
+
+<!-- STATISTICS -->
+<section class="stats">
+    <div>
+        <h2>30</h2>
+        <p>NBA TEAMS</p>
+    </div>
+    <div>
+        <h2>48</h2>
+        <p>MINUTES PER GAME</p>
+    </div>
+    <div>
+        <h2>3</h2>
+        <p>POINT SHOTS</p>
+    </div>
+    <div>
+        <h2>∞</h2>
+        <p>LOVE FOR BASKETBALL</p>
+    </div>
+</section>
+
+<!-- SCORES -->
+<section class="section" id="scores">
+    <div class="section-heading">
+        <div>
+            <p class="orange-text">THE ACTION</p>
+            <h2>GAME CENTER.</h2>
+        </div>
+        <span class="tag">DEMO SCORES</span>
+    </div>
+
+    <div class="score-grid">
+        <div class="score-card">
+            <p>NBA • DEMO</p>
+            <div class="teams">
+                <span>🏀 Lakers</span>
+                <strong>112</strong>
+            </div>
+            <div class="teams">
+                <span>☘️ Celtics</span>
+                <strong>108</strong>
+            </div>
+            <p class="winner">LAKERS WIN</p>
+        </div>
+
+        <div class="score-card">
+            <p>NBA • DEMO</p>
+            <div class="teams">
+                <span>🌉 Warriors</span>
+                <strong>105</strong>
+            </div>
+            <div class="teams">
+                <span>🔥 Heat</span>
+                <strong>99</strong>
+            </div>
+            <p class="winner">WARRIORS WIN</p>
+        </div>
+
+        <div class="score-card">
+            <p>NBA • DEMO</p>
+            <div class="teams">
+                <span>🦌 Bucks</span>
+                <strong>118</strong>
+            </div>
+            <div class="teams">
+                <span>🐂 Bulls</span>
+                <strong>110</strong>
+            </div>
+            <p class="winner">BUCKS WIN</p>
+        </div>
+    </div>
+    <p class="small-note">These are sample scores for demonstration, not live NBA results.</p>
+</section>
+
+<!-- PLAYERS -->
+<section class="section" id="players">
+    <div class="section-heading">
+        <div>
+            <p class="orange-text">THE SUPERSTARS</p>
+            <h2>PLAYER SPOTLIGHT.</h2>
+        </div>
+    </div>
+
+    <div class="player-grid">
+        <div class="player-card">
+            <div class="player-picture">👑</div>
+            <h3>LeBron James</h3>
+            <p>LOS ANGELES LAKERS</p>
+        </div>
+
+        <div class="player-card">
+            <div class="player-picture">🎯</div>
+            <h3>Stephen Curry</h3>
+            <p>GOLDEN STATE WARRIORS</p>
+        </div>
+
+        <div class="player-card">
+            <div class="player-picture">🦄</div>
+            <h3>Victor Wembanyama</h3>
+            <p>SAN ANTONIO SPURS</p>
+        </div>
+    </div>
+</section>
+
+<!-- GAMES -->
+<section class="section games-section" id="games">
+    <div class="section-heading">
+        <div>
+            <p class="orange-text">TEST YOUR KNOWLEDGE</p>
+            <h2>THE FUN ZONE.</h2>
+        </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="game-card">
+        <h3>🏆 Basketball Quiz</h3>
+        <p id="question">Which player is famous for his three-point shooting?</p>
+
+        <div class="answers" id="answers">
+            <button onclick="checkAnswer(this, false)">LeBron James</button>
+            <button onclick="checkAnswer(this, true)">Stephen Curry</button>
+            <button onclick="checkAnswer(this, false)">Shaquille O'Neal</button>
+            <button onclick="checkAnswer(this, false)">Kawhi Leonard</button>
+        </div>
+
+        <p id="quizResult"></p>
+        <button class="main-btn" id="nextQuestion" onclick="nextQuestion()" hidden>
+            NEXT QUESTION →
+        </button>
+        <p>Score: <strong id="quizScore">0</strong></p>
+    </div>
+
+    <!-- GUESS PLAYER -->
+    <div class="game-card">
+        <h3>🕵️ Guess the Player</h3>
+        <p id="playerClue">
+            I am known as the King. I have played for the Lakers.
+            Who am I?
+        </p>
+
+        <input type="text" id="playerGuess" placeholder="Enter player name...">
+
+        <button class="main-btn" onclick="guessPlayer()">SUBMIT GUESS</button>
+        <p id="guessResult"></p>
+        <button class="secondary-btn" onclick="newPlayer()">NEW CLUE</button>
+    </div>
+
+    <!-- SHOOTING GAME -->
+    <div class="game-card shooting-card">
+        <h3>🏀 Free Throw Challenge</h3>
+        <p>Take your shot! How many baskets can you score?</p>
+
+        <div class="hoop">🏀</div>
+
+        <h2 id="shootScore">0</h2>
+        <p>POINTS SCORED</p>
+
+        <button class="main-btn" onclick="takeShot()">SHOOT THE BALL!</button>
+        <button class="secondary-btn" onclick="resetGame()">RESET GAME</button>
+
+        <p id="shotMessage">Ready? Let's play!</p>
+    </div>
+</section>
+
+<!-- TRAINING -->
+<section class="section" id="training">
+    <div class="section-heading">
+        <div>
+            <p class="orange-text">GET BETTER EVERY DAY</p>
+            <h2>TRAIN LIKE A PRO.</h2>
+        </div>
+    </div>
+
+    <div class="training-grid">
+        <div class="training-card">
+            <span>01</span>
+            <h3>Ball Handling</h3>
+            <p>Improve your control, dribbling and confidence with the basketball.</p>
+        </div>
+
+        <div class="training-card">
+            <span>02</span>
+            <h3>Shooting</h3>
+            <p>Practice your shooting form, accuracy and consistency.</p>
+        </div>
+
+        <div class="training-card">
+            <span>03</span>
+            <h3>Footwork</h3>
+            <p>Work on balance, movement and changing direction.</p>
+        </div>
+
+        <div class="training-card">
+            <span>04</span>
+            <h3>Teamwork</h3>
+            <p>Learn communication, passing and playing together.</p>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+    <p class="orange-text">JOIN THE COMMUNITY</p>
+    <h2>LIVE THE GAME.</h2>
+    <p>Basketball is more than a sport. It's a lifestyle.</p>
+    <a href="#home" class="main-btn">BACK TO TOP ↑</a>
+</section>
+
+</main>
+
+<footer>
+    <a href="#home" class="logo">COURT<span>SIDE.</span></a>
+    <p>Built for the love of basketball.</p>
+    <p>© 2026 COURTSIDE. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
